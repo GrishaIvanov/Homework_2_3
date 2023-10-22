@@ -1,12 +1,12 @@
 1. Список клиентов (имя и фамилия) с наибольшей общей суммой заказов.
 SELECT FirstName, LastName 
 FROM Customers
-INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID WHERE TotalAmount > (SELECT MAX(TotalAmount) from Orders)
+INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID WHERE TotalAmount = (SELECT MAX(TotalAmount) from Orders)
 
 2.Список заказов и сортировка по убыванию
 SELECT FirstName, LastName, OrderID, TotalAmount 
 FROM Customers
-INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID WHERE TotalAmount > (SELECT MAX(TotalAmount) from Orders)
+INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID WHERE TotalAmount = (SELECT MAX(TotalAmount) from Orders)
 ORDER BY TotalAmount DESC
 
 3. Клиенты с  общей суммой заказа больше общей средней (В 1 пункте я, в принципе, это и сделал)
